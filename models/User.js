@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-const UserSchema = new mongoose.Sechema(
+const UserSchema = new mongoose.Schema(
     {
         firstName: {
             type: String,
