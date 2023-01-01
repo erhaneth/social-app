@@ -8,6 +8,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
+import authRoutes from "./routes/auth.js";
 import { register } from "./controllers/auth.js"
 
 // CONFIGURATIONS
@@ -34,7 +35,7 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
     }
 })
-
+//middleware that handles file uploads in application
 const upload = multer({ storage })
 
 //Routes with Files
