@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 // wait for certain operations to complete before moving on to the next line of code
-export const verfiyToken = async(req,res, next)=>{
+export const verifyToken = async(req,res, next)=>{
 
     try {
       let token = req.header("Authorization");  
