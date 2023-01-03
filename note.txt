@@ -1,0 +1,1 @@
+//authentication is about verifying identity, while authorization is about granting access to resources or actions based on that identity.
