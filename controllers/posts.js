@@ -54,8 +54,22 @@ export const likePost = async (req, res) => {
     //grab particular user
     const { id } = req.params;
     const { userId } = req.body;
-    
+    const post = await Post.findById(id);
+    const isLiked = post.likes.get(userId);
+
+    if (isLiked) {
+      post.likes.delete(userId);
+    } else {
+      post.likes.delete(userId, true);
+    }
+    const updatedPost = await Post.findByIdAndUpdate(
+      id,
+      { likes: post.likes },
+      { new: true }
+    );
+
+    res.status(200).json(updatedPost);
   } catch (err) {
-    res.status(404).json({ message: err.message})
+    res.status(404).json({ message: err.message });
   }
 };
