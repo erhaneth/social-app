@@ -40,7 +40,7 @@ export const addRemoveFriend = async (req, res) => {
 
         if(user.friends.includes(friendId)){
             user.friends = user.friends.filter((id) => id !== friendId)
-            friend.friends = friend.friends.filter((id) => id !== id)
+            friend.friends = friend.friends.filter((id) => id !== friendId)
 
         } else {
             user.friends.push(friendId);
@@ -60,6 +60,6 @@ export const addRemoveFriend = async (req, res) => {
         res.status(200).json(formattedFriends);
 
     } catch (error) {
-        
+        res.status(404).json({ message: error.message})
     }
 }
